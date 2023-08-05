@@ -4,6 +4,7 @@ import com.GameDev.TaskManager.domain.Estado;
 import com.GameDev.TaskManager.domain.Tarea;
 import com.GameDev.TaskManager.model.dto.TareaDTO;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ITareaService {
@@ -19,4 +20,5 @@ public interface ITareaService {
 
     List<TareaDTO> buscarTareasPorEstado(Estado estado);
     public void actualizarEstadoTarea( String uuid_tarea, Estado estado);
+    List<TareaDTO> buscarTareasPorFechaLimite(LocalDate fechaLimite);
 }

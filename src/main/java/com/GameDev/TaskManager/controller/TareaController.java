@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @NoArgsConstructor
@@ -69,5 +70,9 @@ public class TareaController {
         return ResponseEntity.ok().build();
     }
 
-
+    @GetMapping("/buscar-por-fecha-limite")
+    public ResponseEntity<List<TareaDTO>> buscarTareasPorFechaLimite(@RequestParam LocalDate fecha) {
+        List<TareaDTO> tareas = tareaService.buscarTareasPorFechaLimite(fecha);
+        return ResponseEntity.ok(tareas);
+    }
 }

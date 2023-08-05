@@ -80,7 +80,10 @@ public class TareaServiceJPAImpl implements ITareaService {
         tarea.setEstado(estado);
         tareaRepository.save(tarea);
     }
-
+    public List<TareaDTO> buscarTareasPorFechaLimite(LocalDate fechaLimite) {
+        List<Tarea> tareas=  tareaRepository.findByFechaLimiteBefore(fechaLimite);
+        return  tareaMapper.listaAListaDTO(tareas);
+    }
   }
 
 
